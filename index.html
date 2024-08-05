@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="game.js"></script> 
+    <script src="game.js"></script> <!-- Correct way to link an external JS file -->
 </head>
 <body> 
+    <div class="container">
+        <button class="humanBtn">Your Choice</button>
+        <button class="compBtn">Computer Choice</button>
+        <button class="playRoundBtn">Play Round</button>
+    </div>
+
     <script>
+        let humanSelection = "";
+        let computerSelection = "";
+        
+        const humanBtn = document.querySelector(".humanBtn");
+        humanBtn.addEventListener("click", () => {
+            humanSelection = getHumanChoice();
+            console.log(`Human selected: ${humanSelection}`);
+        });
+
+        const compBtn = document.querySelector(".compBtn");
+        compBtn.addEventListener("click", () => {
+            computerSelection = getComputerChoice();
+            console.log(`Computer selected: ${computerSelection}`);
+        });
+
+        const playRoundBttn = document.querySelector(".playRoundBtn");
+        playRoundBttn.addEventListener("click", () => { 
+            let result = playRound(humanSelection, computerSelection);
+            alert(result);
+            checkScores();
+        });
+        
     </script>
 </body>
 </html>
+
